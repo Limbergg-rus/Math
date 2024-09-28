@@ -1,8 +1,9 @@
-package Matrix;
+package Math.Matrix;
 
-import Vectors.Vector4D;
+import Math.Vectors.Vector4D;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Matrix4D {
     private double[][] matrix;
@@ -41,7 +42,7 @@ public class Matrix4D {
         return new Matrix4D(ans);
     }
 
-    public Matrix4D substract(Matrix.Matrix4D m4) {
+    public Matrix4D substract(Math.Matrix.Matrix4D m4) {
         double[][] ans = new double[4][4];
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -51,7 +52,7 @@ public class Matrix4D {
         return new Matrix4D(ans);
     }
 
-    public Matrix4D matrixProduct(Matrix.Matrix4D m4) {
+    public Matrix4D matrixProduct(Math.Matrix.Matrix4D m4) {
         if (this.matrix[0].length != m4.matrix.length) {
             throw new IllegalArgumentException("Количество столбцов первой матрицы должно быть равно количеству строк второй матрицы!");
         }
@@ -107,6 +108,19 @@ public class Matrix4D {
             cnt++;
         }
         return String.valueOf(ans.append(']'));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Matrix4D matrix4D = (Matrix4D) o;
+        return Objects.deepEquals(matrix, matrix4D.matrix);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.deepHashCode(matrix);
     }
 
     /*

@@ -1,4 +1,4 @@
-package Vectors;
+package Math.Vectors;
 
 import org.junit.jupiter.api.Test;
 
@@ -11,14 +11,14 @@ class Vector3DTest {
     void sum() {
         Vector3D v1 = new Vector3D(1, 2, 3);
         Vector3D v2 = new Vector3D(4, 5, 6);
-        assertEquals(new Vector3D(5, 7, 9).toString(), v1.sum(v2).toString());
+        assertEquals(new Vector3D(5, 7, 9), v1.sum(v2));
     }
 
     @Test
     void subtract() {
         Vector3D v1 = new Vector3D(4, 5, 6);
         Vector3D v2 = new Vector3D(1, 2, 3);
-        assertEquals(new Vector3D(3, 3, 3).toString(), v1.subtract(v2).toString());
+        assertEquals(new Vector3D(3, 3, 3), v1.subtract(v2));
     }
 
     @Test
@@ -45,13 +45,13 @@ class Vector3DTest {
     @Test
     void testScalarProduct() {
         Vector3D v = new Vector3D(1, 2, 3);
-        assertEquals(new Vector3D(2, 4, 6).toString(), v.scalarProduct(2).toString());
+        assertEquals(new Vector3D(2, 4, 6), v.scalarProduct(2));
     }
 
     @Test
     void normalization() {
         Vector3D v = new Vector3D(5, 4, 8);
-        assertEquals(new Vector3D(5 / 10.246950765959598, 4 / 10.246950765959598, 8 / 10.246950765959598).toString(),  v.normalization().toString());
+        assertEquals(new Vector3D(5 / v.getLength(), 4 / v.getLength(), 8 / v.getLength()),  v.normalization());
     }
 
     @Test
@@ -66,6 +66,6 @@ class Vector3DTest {
         Vector3D v = new Vector3D(5, 4, 8);
         Vector3D v2 = new Vector3D(1, 2, 3);
         Vector3D result = v.vectorProduct(v2);
-        assertEquals(new Vector3D(-4, -7, 6).toString(), result.toString());
+        assertEquals(new Vector3D(-4, -7, 6), result);
     }
 }

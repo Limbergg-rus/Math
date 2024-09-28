@@ -1,4 +1,6 @@
-package Vectors;
+package Math.Vectors;
+
+import java.util.Objects;
 
 public class Vector3D {
     private double x;
@@ -75,12 +77,25 @@ public class Vector3D {
 
     @Override
     public String toString() {
-        return "Vectors.Vector3D{" +
+        return "Math.Vectors.Vector3D{" +
                 "x=" + x +
                 ", y=" + y +
                 ", z=" + z +
                 '}';
     }
 
-//todo Векторное произведение
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vector3D vector3D = (Vector3D) o;
+        return Double.compare(x, vector3D.x) == 0 && Double.compare(y, vector3D.y) == 0 && Double.compare(z, vector3D.z) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y, z);
+    }
+
+    //todo Векторное произведение
 }

@@ -1,4 +1,4 @@
-package Vectors;
+package Math.Vectors;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,14 +10,12 @@ class Vector2DTest {
 
     @org.junit.jupiter.api.Test
     void sum() {
-        assertEquals(7, a.sum(b).getX(), 0.0);
-        assertEquals(7, a.sum(b).getY(), 0.0);
+        assertEquals(new Vector2D(7, 7), a.sum(b));
     }
 
     @org.junit.jupiter.api.Test
     void subtract() {
-        assertEquals(-1, a.subtract(b).getX());
-        assertEquals(1, a.subtract(b).getY());
+        assertEquals(new Vector2D( -1 , 1), a.subtract(b));
     }
 
     @org.junit.jupiter.api.Test
@@ -28,8 +26,7 @@ class Vector2DTest {
 
     @org.junit.jupiter.api.Test
     void testScalarProduct() {
-        assertEquals(15, a.scalarProduct(5).getX());
-        assertEquals(20, a.scalarProduct(5).getY());
+        assertEquals(new Vector2D(15,20), a.scalarProduct(5));
     }
 
     @org.junit.jupiter.api.Test
@@ -39,8 +36,7 @@ class Vector2DTest {
 
     @org.junit.jupiter.api.Test
     void normalization() {
-        assertEquals(0.2 * 3, a.normalization().getX());
-        assertEquals(0.2 * 4, a.normalization().getY());
+        assertEquals(new Vector2D(0.2 * 3, 0.2*4), a.normalization());
     }
 
     @Test

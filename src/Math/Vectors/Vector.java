@@ -1,4 +1,4 @@
-package Vectors;
+package Math.Vectors;
 
 public abstract class Vector {
 

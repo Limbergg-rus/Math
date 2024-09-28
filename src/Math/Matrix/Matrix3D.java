@@ -1,8 +1,9 @@
-package Matrix;
+package Math.Matrix;
 
-import Vectors.Vector3D;
+import Math.Vectors.Vector3D;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Matrix3D {
     private double[][] matrix;
@@ -102,6 +103,19 @@ public class Matrix3D {
     public String toString() {
         return "[" + Arrays.toString(matrix[0]) + ", " + Arrays.toString(matrix[1]) + ", " +
                 Arrays.toString(matrix[2]) + "]";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Matrix3D matrix3D = (Matrix3D) o;
+        return Objects.deepEquals(matrix, matrix3D.matrix);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.deepHashCode(matrix);
     }
 }
 

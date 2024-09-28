@@ -1,4 +1,4 @@
-package Vectors;
+package Math.Vectors;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,12 +10,12 @@ class Vector4DTest {
     @Test
     void sum() {
         ;
-        assertEquals(a.sum(b).toString(), new Vector4D(9,6,17,10).toString());
+        assertEquals(a.sum(b), new Vector4D(9,6,17,10));
     }
 
     @Test
     void subtract() {
-        assertEquals(a.subtract(b).toString(), new Vector4D(1,-4,1,2).toString());
+        assertEquals(a.subtract(b), new Vector4D(1,-4,1,2));
     }
 
     @Test
@@ -35,11 +35,11 @@ class Vector4DTest {
 
     @Test
     void testScalarProduct() {
-        assertEquals(new Vector4D(10,2, 18, 12).toString(), a.scalarProduct(2).toString());
+        assertEquals(new Vector4D(10,2, 18, 12), a.scalarProduct(2));
     }
 
     @Test
     void normalization() {
-        assertEquals(a.normalization().toString(), new Vector4D(5/11.9582607431014,1/11.9582607431014,9/11.9582607431014,6/11.9582607431014));
+        assertEquals(new Vector4D(5/a.getLength(),1/a.getLength(),9/a.getLength(),6/a.getLength()), a.normalization());
     }
 }

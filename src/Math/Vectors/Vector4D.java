@@ -1,4 +1,6 @@
-package Vectors;
+package Math.Vectors;
+
+import java.util.Objects;
 
 public class Vector4D {
     private double x;
@@ -82,11 +84,24 @@ public class Vector4D {
 
     @Override
     public String toString() {
-        return "Vectors.Vector4D{" +
+        return "Math.Vectors.Vector4D{" +
                 "x=" + x +
                 ", y=" + y +
                 ", z=" + z +
                 ", w=" + w +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vector4D vector4D = (Vector4D) o;
+        return Double.compare(x, vector4D.x) == 0 && Double.compare(y, vector4D.y) == 0 && Double.compare(z, vector4D.z) == 0 && Double.compare(w, vector4D.w) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y, z, w);
     }
 }
